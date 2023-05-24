@@ -1,0 +1,30 @@
+.todo {
+  &-wrapper {
+    box-shadow: #ec4899 0px 1px 1px, #ec4899 0px 0px 1px 1px;
+    @apply p-3 rounded-md text-pink-500 gap-x-4;
+  }
+
+  &-header {
+    @apply w-full flex justify-between items-center;
+  }
+
+  &-checkbox {
+    @apply relative;
+  }
+
+  &-info {
+    @apply mt-4 ml-8;
+  }
+
+  &-status {
+    @apply relative flex justify-start items-center;
+  }
+
+  &-name {
+    @apply font-bold;
+  }
+
+  &-description {
+    @apply text-sm;
+  }
+}

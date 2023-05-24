@@ -1,6 +1,10 @@
-<div [class]="currentTheme" class="h-screen">
-  <div class="dark:bg-gray-800 h-full">
+<div [class]="currentTheme">
+  <div class="bg-white dark:bg-gray-800 h-screen">
     <app-top-bar></app-top-bar>
-    <router-outlet></router-outlet>
+
+    <div class="app-layout">
+      <app-todo-list></app-todo-list>
+    </div>
   </div>
 </div>
+<router-outlet></router-outlet>

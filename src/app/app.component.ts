@@ -12,7 +12,10 @@ export class AppComponent {
   currentTheme: string = '';
 
   constructor(private themeService: ThemeService) {
+    //Get current localStorage theme
     this.currentTheme = this.themeService.currentTheme;
+
+    //Subscribe to themeService subject to get updated theme
     this.themeService.currentThemeChanged.subscribe((theme) => {
       this.currentTheme = theme;
     });

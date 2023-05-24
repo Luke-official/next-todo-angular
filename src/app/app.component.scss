@@ -1,0 +1,6 @@
+.app {
+  &-layout {
+    height: calc(100vh - 58px);
+    @apply relative top-[58px] overflow-y-scroll px-4 py-6;
+  }
+}

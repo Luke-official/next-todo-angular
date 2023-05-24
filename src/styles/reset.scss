@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 /*
     Use a more-intuitive box-sizing model.
 */
@@ -12,6 +13,7 @@
 html,
 body {
   height: 100%;
+  font-family: "Montserrat", sans-serif !important;
 }
 /*
   Remove default margin
@@ -70,3 +72,7 @@ app-root {
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+mat-icon.mat-icon {
+  @apply w-5 h-5;
+}
