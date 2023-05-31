@@ -1,19 +1,22 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, Subject, catchError } from 'rxjs';
 import { ITodo, ITodoList } from 'src/app/models/todo';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  private URL = 'http://localhost:4000/api';
+  private URL = 'http://192.168.178.45:4000/api';
+  public todoChanged: Subject<boolean>;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.todoChanged = new Subject<boolean>()
+  }
 
   getTodos(): Observable<ITodoList> {
     return this.http.get<ITodoList>(this.URL + '/todos').pipe(
@@ -33,5 +36,13 @@ export class TodoService {
           throw new Error(error);
         })
       );
+  }
+
+  deleteTodo(todo:ITodo): Observable<any> {
+    return this.http.delete<any>(`${this.URL}/delete-todo/${todo.id}`).pipe(
+      catchError((error) => {
+        throw new Error(error);
+      })
+    )
   }
 }

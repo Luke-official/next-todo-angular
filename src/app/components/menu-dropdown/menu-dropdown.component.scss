@@ -1,0 +1,13 @@
+.dropdown{
+    &-button{
+        @apply w-6 h-6;
+    }
+    
+    &-menu{
+        @apply absolute right-6 z-10 mt-2 origin-top-right rounded-md border-[1px] border-gray-300 dark:border-transparent dark:bg-secondary bg-white shadow-lg ring-opacity-5 focus:outline-none;
+    }
+
+    &-item{
+        @apply inline-flex px-2 items-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md;
+    }
+}

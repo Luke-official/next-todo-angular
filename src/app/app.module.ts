@@ -9,6 +9,7 @@ import { TodoComponent } from './components/todo/todo.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MenuDropdownComponent } from './components/menu-dropdown/menu-dropdown.component';
 import { MatIconModule } from '@angular/material/icon';
+import { TodoService } from './lib/todo/todo.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     MenuDropdownComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatIconModule],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

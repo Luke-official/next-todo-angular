@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TodoService } from 'src/app/lib/todo/todo.service';
-import { ITodo } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,14 +12,21 @@ export class TodoListComponent {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.getTodos();
+    this.getTodos()
+    this.initTodoChangedSubscription();
   }
 
   getTodos(): void {
     this.todoService.getTodos().subscribe((data) => (this.todos = data.todos));
   }
 
-  toggleTodo(todo: ITodo) {
-    this.todoService.toggleTodo(todo).subscribe((data) => console.log(data));
+  initTodoChangedSubscription() {
+    this.todoService.todoChanged.subscribe((data: boolean) => {
+        if(data) {
+          this.getTodos();
+        }
+    });  
+
   }
+
 }

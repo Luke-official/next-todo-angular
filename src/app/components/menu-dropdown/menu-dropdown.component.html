@@ -1,8 +1,8 @@
-<div *ngIf="dropdownItems.length > 0">
+<div tabindex="0" *ngIf="dropdownItems.length > 0" #dropdownElement>
   <button
-    class="w-6 h-6"
-    (blur)="toggleVisibility()"
+    class="dropdown-button"
     (click)="toggleVisibility()"
+    
   >
     <svg
       data-darkreader-inline-stroke=""
@@ -21,7 +21,7 @@
     </svg>
   </button>
   <div
-    class="absolute right-6 z-10 mt-2 origin-top-right rounded-md border-[1px] border-gray-300 dark:border-transparent dark:bg-secondary bg-white shadow-lg ring-opacity-5 focus:outline-none"
+    class="dropdown-menu"
     [ngClass]="dropdownIsVisible ? 'active' : 'hidden'"
     role="menu"
     id="menu-dropdown"
@@ -30,8 +30,9 @@
       <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
       <div
         *ngFor="let item of dropdownItems"
-        class="inline-flex px-2 items-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-      >
+        class="dropdown-item"
+        (click)="item.icon === 'trash' ? deleteTodo(todo) : updateTodo(todo)"
+        >
         <mat-icon class="" [svgIcon]="item.icon"></mat-icon>
         <a
           href="#"
