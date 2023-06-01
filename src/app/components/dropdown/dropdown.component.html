@@ -1,0 +1,43 @@
+<div tabindex="0" *ngIf="dropdownItems.length > 0" #dropdownElement>
+  <button class="dropdown-button" (click)="toggleVisibility()">
+    <svg
+      data-darkreader-inline-stroke=""
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+    </svg>
+  </button>
+  <div
+    class="dropdown-menu"
+    [ngClass]="dropdownIsVisible ? 'active' : 'hidden'"
+    role="menu"
+    id="menu-dropdown"
+  >
+    <div class="p-2 flex flex-col" role="none">
+      <div
+        *ngFor="let item of dropdownItems"
+        class="dropdown-item"
+        (click)="item.icon === 'trash' ? deleteTodo(todo) : updateTodo(todo)"
+      >
+        <mat-icon [svgIcon]="item.icon"></mat-icon>
+        <a
+          href="#"
+          class="text-pink-500 focus:outline-none block pl-3 py-2 text-sm"
+          role="menuitem"
+          tabindex="-1"
+          id="menu-item-0"
+          >{{ item.name }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
