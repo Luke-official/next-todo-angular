@@ -27,4 +27,8 @@
   &-description {
     @apply text-sm;
   }
+
+  &-deleted {
+    @apply animate-[fade-out-down_1s_ease-in-out];
+  }
 }

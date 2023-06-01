@@ -7,7 +7,7 @@ import { ITodo, ITodoList } from 'src/app/models/todo';
   providedIn: 'root',
 })
 export class TodoService {
-  private URL = 'http://192.168.178.45:4000/api';
+  private URL = 'http://192.168.178.72:4000/api';
   public todoChanged: Subject<boolean>;
 
   httpOptions = {
@@ -15,7 +15,7 @@ export class TodoService {
   };
 
   constructor(private http: HttpClient) {
-    this.todoChanged = new Subject<boolean>()
+    this.todoChanged = new Subject<boolean>();
   }
 
   getTodos(): Observable<ITodoList> {
@@ -38,11 +38,11 @@ export class TodoService {
       );
   }
 
-  deleteTodo(todo:ITodo): Observable<any> {
+  deleteTodo(todo: ITodo): Observable<any> {
     return this.http.delete<any>(`${this.URL}/delete-todo/${todo.id}`).pipe(
       catchError((error) => {
         throw new Error(error);
       })
-    )
+    );
   }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TodoService } from 'src/app/lib/todo/todo.service';
 
 @Component({
@@ -9,10 +11,21 @@ import { TodoService } from 'src/app/lib/todo/todo.service';
 export class TodoListComponent {
   todos: Array<any> = [];
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      'plus',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/icons/Plus.svg'
+      )
+    );
+  }
 
   ngOnInit(): void {
-    this.getTodos()
+    this.getTodos();
     this.initTodoChangedSubscription();
   }
 
@@ -22,11 +35,11 @@ export class TodoListComponent {
 
   initTodoChangedSubscription() {
     this.todoService.todoChanged.subscribe((data: boolean) => {
-        if(data) {
-          this.getTodos();
-        }
-    });  
-
+      if (data) {
+        this.getTodos();
+      }
+    });
   }
 
+  addButtonAsString = `<mat-icon [svgIcon]="plus"></mat-icon>`;
 }

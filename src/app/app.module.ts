@@ -7,9 +7,12 @@ import { SwitchThemeComponent } from './components/switch-theme/switch-theme.com
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
-import { MenuDropdownComponent } from './components/menu-dropdown/menu-dropdown.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TodoService } from './lib/todo/todo.service';
+import { ButtonComponent } from './components/button/button.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { TodoService } from './lib/todo/todo.service';
     SwitchThemeComponent,
     TodoListComponent,
     TodoComponent,
-    MenuDropdownComponent,
+    DropdownComponent,
+    ButtonComponent,
+    ModalComponent,
+    InputComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatIconModule],
   providers: [TodoService],
