@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TodoService } from 'src/app/lib/todo/todo.service';
+import { TodoService } from 'src/app/services/todo/todo.service';
 import { ITodo } from 'src/app/models/todo';
 
 type dropdownItemType = {

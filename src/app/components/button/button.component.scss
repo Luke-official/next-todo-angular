@@ -1,8 +1,8 @@
 .button {
-  @apply hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-1;
+  @apply hover:bg-gray-100 dark:hover:bg-primary border-[1px] border-pink-500 focus:outline-none rounded-lg text-sm px-6 py-2;
   box-shadow: #ec4899 0px 1px 1px, #ec4899 0px 0px 1px 1px;
 
   &-primary {
-    @apply bg-pink-500 text-white font-bold px-2;
+    @apply bg-pink-500 text-white font-bold hover:text-pink-500;
   }
 }

@@ -3,10 +3,10 @@
     <h3 class="text-pink-500 font-bold">Your TO-DOs</h3>
     <app-button [text]="'Add'" />
   </div>
-
   <ul class="mt-4 flex flex-col gap-y-4">
     <li *ngFor="let todo of todos">
       <app-todo [todo]="todo"></app-todo>
     </li>
   </ul>
+  <app-modal></app-modal>
 </div>

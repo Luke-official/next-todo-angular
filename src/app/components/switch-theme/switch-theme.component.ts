@@ -1,5 +1,5 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
-import { ThemeService } from 'src/app/lib/theme/theme.service';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 
 @Component({
   selector: 'app-switch-theme',

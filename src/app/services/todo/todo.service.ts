@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError } from 'rxjs';
 import { ITodo, ITodoList } from 'src/app/models/todo';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  private URL = 'http://192.168.178.72:4000/api';
+  private URL = environment.apiUrl;
   public todoChanged: Subject<boolean>;
 
   httpOptions = {
