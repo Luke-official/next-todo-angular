@@ -1,3 +1,9 @@
 .topbar {
-  @apply z-10 fixed top-0 dark:bg-secondary w-full shadow-md px-4 py-3 flex justify-between items-center rounded-b-md;
+  &-wrapper {
+    @apply z-10 fixed top-0 dark:bg-secondary w-full shadow-md px-4 py-3 rounded-b-md;
+  }
+
+  &-content {
+    @apply flex justify-between items-center w-full max-w-3xl mx-auto;
+  }
 }

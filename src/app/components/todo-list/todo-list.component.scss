@@ -1,4 +1,8 @@
 .todolist {
+  &-wrapper {
+    @apply relative;
+  }
+
   &-header {
     @apply flex justify-between items-center;
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { TodoService } from 'src/app/services/todo/todo.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class TodoListComponent {
 
   constructor(
     private todoService: TodoService,
+    private modalService: ModalService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ) {
@@ -39,6 +41,10 @@ export class TodoListComponent {
         this.getTodos();
       }
     });
+  }
+
+  toggleModal() {
+    this.modalService.toggleModalOpen();
   }
 
   addButtonAsString = `<mat-icon [svgIcon]="plus"></mat-icon>`;

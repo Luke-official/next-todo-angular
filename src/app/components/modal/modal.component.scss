@@ -1,0 +1,17 @@
+.modal {
+  &-wrapper {
+    @apply absolute top-0 z-10 p-4 h-fit w-full rounded-md bg-slate-100 dark:bg-primary border-2 border-pink-500;
+  }
+
+  &-header {
+    @apply w-full flex justify-between items-center;
+  }
+
+  &-title {
+    @apply font-bold text-pink-500 dark:text-white;
+  }
+
+  &-overlay {
+    @apply z-[5] inset-0 bg-black opacity-30;
+  }
+}

@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,5 +12,24 @@ export class ModalComponent {
   @Input() title: string = 'Modal Title';
   isModalOpen: boolean = false;
 
-  toggleModalOpen = () => (this.isModalOpen = !this.isModalOpen);
+  constructor(
+    private modalService: ModalService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.isModalOpen = modalService.isModalOpen;
+    this.modalService.modalChanged.subscribe((status) => {
+      this.isModalOpen = status;
+    });
+    this.matIconRegistry.addSvgIcon(
+      'XMark',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/icons/XMark.svg'
+      )
+    );
+  }
+
+  toggleModalOpen() {
+    this.modalService.toggleModalOpen();
+  }
 }
