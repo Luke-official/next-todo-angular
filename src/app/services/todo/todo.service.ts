@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError } from 'rxjs';
-import { ITodo, ITodoList } from 'src/app/models/todo';
+import { INewTodo, ITodo, ITodoList } from 'src/app/models/todo';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -21,6 +21,15 @@ export class TodoService {
 
   getTodos(): Observable<ITodoList> {
     return this.http.get<ITodoList>(this.URL + '/todos').pipe(
+      catchError((error: any): Observable<any> => {
+        console.error('There was an error!', error);
+        return error;
+      })
+    );
+  }
+
+  addTodo(newTodo: INewTodo): Observable<any> {
+    return this.http.post<any>(this.URL + '/add-todo', newTodo).pipe(
       catchError((error: any): Observable<any> => {
         console.error('There was an error!', error);
         return error;

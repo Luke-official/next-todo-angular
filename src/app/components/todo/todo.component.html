@@ -1,13 +1,15 @@
 <div class="todo-wrapper">
   <div class="todo-header">
     <div class="inline-flex items-center">
-      <input
+      <!-- <input
+        class="input-checkbox"
         type="checkbox"
         value=""
         id="checkboxDefault"
         [checked]="todo.status"
         (change)="toggleTodo(todo)"
-      />
+      /> -->
+      <app-checkbox [checked]="todo.status" (change)="toggleTodo(todo)" />
       <h2 class="todo-name">{{ todo.name }}</h2>
     </div>
     <app-dropdown [todo]="todo" />

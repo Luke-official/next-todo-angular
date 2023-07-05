@@ -12,6 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { TodoService } from './services/todo/todo.service';
 import { ButtonComponent } from './components/button/button.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { InputComponent } from './components/input/input.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { SwitchComponent } from './components/switch/switch.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,8 +28,19 @@ import { ModalComponent } from './components/modal/modal.component';
     DropdownComponent,
     ButtonComponent,
     ModalComponent,
+    InputComponent,
+    TodoFormComponent,
+    SwitchComponent,
+    CheckboxComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatIconModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [TodoService],
   bootstrap: [AppComponent],
 })

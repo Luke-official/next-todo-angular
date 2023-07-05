@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { togglePageScroll } from 'src/utils/togglePageScroll';
 
 @Component({
   selector: 'app-modal',

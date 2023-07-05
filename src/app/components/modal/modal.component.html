@@ -7,5 +7,8 @@
       [svgIcon]="'XMark'"
     ></mat-icon>
   </div>
+  <div class="modal-content py-6">
+    <ng-content></ng-content>
+  </div>
 </div>
 <div [ngClass]="isModalOpen ? 'fixed' : 'hidden'" class="modal-overlay"></div>

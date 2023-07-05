@@ -32,7 +32,9 @@ export class TodoListComponent {
   }
 
   getTodos(): void {
-    this.todoService.getTodos().subscribe((data) => (this.todos = data.todos));
+    this.todoService
+      .getTodos()
+      .subscribe((data) => (this.todos = data.todos.reverse()));
   }
 
   initTodoChangedSubscription() {
